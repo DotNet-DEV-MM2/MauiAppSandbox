@@ -14,26 +14,24 @@
             <ShellContent Title="Type"
                           ContentTemplate="{DataTemplate views:MainPage}" />
             <ShellContent Title="Size"
-                          Icon="autumn.png"
                           ContentTemplate="{DataTemplate views:MainPage}" />
             <ShellContent Title="Favs"
-                          Icon="dog.png"
                           ContentTemplate="{DataTemplate views:MainPage}" />
         </Tab>
         <ShellContent Title="Category Admin"
                       Icon="graph.svg"
-                      ContentTemplate="{DataTemplate views:CategoriesView}" />
+                      ContentTemplate="{DataTemplate views:CategoriesPage}" />
         <ShellContent Title="User Settings"
                       Icon="setting.svg"
-                      ContentTemplate="{DataTemplate views:CategoriesView}" />
+                      ContentTemplate="{DataTemplate views:CategoriesPage}" />
         <ShellContent Title="About"
                       Icon="autumn.png"
-                      ContentTemplate="{DataTemplate views:CategoriesView}" />
+                      ContentTemplate="{DataTemplate views:CategoriesPage}" />
     </FlyoutItem>
 
     <ShellContent Title="Logout"
                   Icon="logout.png"
-                  ContentTemplate="{DataTemplate views:CategoriesView}" />
+                  ContentTemplate="{DataTemplate views:CategoriesPage}" />
 
 </Shell>
 

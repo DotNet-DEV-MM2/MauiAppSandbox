@@ -60,16 +60,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\AddClosetItemPage.xaml.cs">
+	    <DependentUpon>AddClosetItemPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\CategoriesPage.xaml.cs">
+	    <DependentUpon>CategoriesPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\ClosetItemDetailsPage.xaml.cs">
 	    <DependentUpon>ClosetItemDetailsPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\AddClosetItemView.xaml">
+	  <MauiXaml Update="Views\AddClosetItemPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CategoriesView.xaml">
+	  <MauiXaml Update="Views\CategoriesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ClosetItemDetailsPage.xaml">

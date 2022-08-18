@@ -44,11 +44,11 @@ public static class MauiProgram
         builder.Services.AddTransient<ClosetItemDetailsPage>();
 
         builder.Services.AddSingleton<AddClosetItemViewModel>();
-        builder.Services.AddSingleton<AddClosetItemView>();
+        builder.Services.AddSingleton<AddClosetItemPage>();
 
         // categories
         builder.Services.AddSingleton<CategoriesViewModel>();
-        builder.Services.AddSingleton<CategoriesView>();
+        builder.Services.AddSingleton<CategoriesPage>();
 
 
 

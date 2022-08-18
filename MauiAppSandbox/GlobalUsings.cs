@@ -2,6 +2,7 @@
 global using CommunityToolkit.Mvvm.Input;
 global using MauiAppSandbox.Models;
 global using MauiAppSandbox.ViewModels;
+global using MauiAppSandbox.Views;
 global using System.Collections.ObjectModel;
 global using System.ComponentModel;
 global using System.Diagnostics;
