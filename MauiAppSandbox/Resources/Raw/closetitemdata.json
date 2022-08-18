@@ -1,6 +1,6 @@
 ﻿[
   {
-    "Id": 1,
+    "ClosetItemId": 1,
     "PictureUri": "top_1.png",
     "Name": "Floral cap-sleeved blouseM",
     "Description": "Small, Spring, Top M",
@@ -13,7 +13,7 @@
 
   },
   {
-    "Id": 2,
+    "ClosetItemId": 2,
     "PictureUri": "bottom_blue_corduroy_skirt_1.png",
     "Name": "Corduroy skirt",
     "Description": "Small, Summer, Bottom M",
@@ -25,7 +25,7 @@
     "Longitude": 34.508523
   },
   {
-    "Id": 3,
+    "ClosetItemId": 3,
     "PictureUri": "dress_red_1.png",
     "Name": "Red long dress",
     "Description": "Medium, Winter, Dress M",
@@ -37,7 +37,7 @@
     "Longitude": 34.508523
   },
   {
-    "Id": 4,
+    "ClosetItemId": 4,
     "PictureUri": "outerwear_1.png",
     "Name": "London Fog rain coat",
     "Description": "Large, Always, Outerwear M",
@@ -49,7 +49,7 @@
     "Longitude": 34.508523
   },
   {
-    "Id": 5,
+    "ClosetItemId": 5,
     "PictureUri": "footwear_1.png",
     "Name": "Black leather boots",
     "Description": "Small, Winter, Footwear M",
@@ -61,7 +61,7 @@
     "Longitude": 34.508523
   },
   {
-    "Id": 6,
+    "ClosetItemId": 6,
     "PictureUri": "top_white_blouse_1.png",
     "Name": "White dressy blouse",
     "Description": "Medium, Spring, Top M",
@@ -73,7 +73,7 @@
     "Longitude": 34.508523
   },
   {
-    "Id": 7,
+    "ClosetItemId": 7,
     "PictureUri": "bottoms_1.png",
     "Name": "Blue Corduroy Skirt",
     "Description": "Large, Summer, Bottom M",
@@ -85,7 +85,7 @@
     "Longitude": 34.508523
   },
   {
-    "Id": 8,
+    "ClosetItemId": 8,
     "PictureUri": "dress_1.png",
     "Name": "Long Green dress",
     "Description": "Small, Fall, Dress M",
@@ -97,7 +97,7 @@
     "Longitude": 34.508523
   },
   {
-    "Id": 9,
+    "ClosetItemId": 9,
     "PictureUri": "top_white_sweater_1.png",
     "Name": "White Sweater",
     "Description": "Medium, Always, Outerwear M",
@@ -109,7 +109,7 @@
     "Longitude": 34.508523
   },
   {
-    "Id": 10,
+    "ClosetItemId": 10,
     "PictureUri": "top_white_blouse_1.png",
     "Name": "White Blouse",
     "Description": "Medium, Always, Top M",
@@ -121,7 +121,7 @@
     "Longitude": 34.508523
   },
   {
-    "Id": 10,
+    "ClosetItemId": 10,
     "PictureUri": "accessories_pearl_necklace_1.png",
     "Name": "Pearl Necklace",
     "Description": "Medium, Winter, Accessory M",
@@ -133,7 +133,7 @@
     "Longitude": 34.508523
   },
   {
-    "Id": 11,
+    "ClosetItemId": 11,
     "PictureUri": "purse_1.png",
     "Name": "Purse",
     "Description": "Large, Spring, Accessory M",
@@ -145,7 +145,7 @@
     "Longitude": 34.508523
   },
   {
-    "Id": 12,
+    "ClosetItemId": 12,
     "PictureUri": "bottoms_1.png",
     "Name": "Jeans",
     "Description": "Small, Winter, Bottom M",

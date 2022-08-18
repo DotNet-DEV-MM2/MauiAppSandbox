@@ -1,49 +1,50 @@
 ﻿using MauiAppSandbox.Services;
 using MauiAppSandbox.Views;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MauiAppSandbox.ViewModels
 {
-    public partial class ClosetItemsViewModel : BaseViewModel
+    public partial class CategoriesViewModel : BaseViewModel
     {
-        public ObservableCollection<ClosetItem> ClosetItems { get; } = new();
+        public ObservableCollection<Category> Categories { get; } = new();
 
         // if getting data from http service
-        //ClosetItemHTTPService closetItemService;
+        //CategoryHTTPService categoryService;
 
         // if getting data from local sqlite db
-        ClosetItemSQLiteRepository _closetItemRepo;
+        CategorySQLiteRepository _categoryRepo;
 
         IConnectivity connectivity;
-        IGeolocation geolocation;
 
         // if getting data from http service
-        /*public ClosetItemsViewModel(ClosetItemHTTPService closetItemService, 
-            IConnectivity connectivity, 
-            IGeolocation geolocation)*/
+        /*public CategoriesViewModel(CategoryHTTPService categoryService, 
+            IConnectivity connectivity)*/
 
         // if getting data from local sqlite db
-        public ClosetItemsViewModel(ClosetItemSQLiteRepository closetItemRepo,
-            IConnectivity connectivity,
-            IGeolocation geolocation)
+        public CategoriesViewModel(CategorySQLiteRepository categoryRepo,
+            IConnectivity connectivity)
 
         {
-            Title = "ClosetItem Finder";
+            Title = "Category Finder";
 
             // if getting data from http service
-            // this.closetItemService = closetItemService;
+            // this.categoryService = categoryService;
 
             // if getting data from local sqlite db
-            _closetItemRepo = closetItemRepo;
+            _categoryRepo = categoryRepo;
 
             this.connectivity = connectivity;
-            this.geolocation = geolocation;
         }
 
         [ObservableProperty]
         bool isRefreshing;
 
         [RelayCommand]
-        async Task GetClosetItemsAsync()
+        async Task GetCategoriesAsync()
         {
             if (IsBusy)
                 return;
@@ -61,20 +62,20 @@ namespace MauiAppSandbox.ViewModels
                 IsBusy = true;
 
                 // if using static data
-                //var closetItems = await closetItemService.GetClosetItems();
+                //var categories = await categoryService.GetCategories();
 
                 // if using local sqlite db
-                var closetItems = await _closetItemRepo.GetAllClosetItems();
-                if (ClosetItems.Count != 0)
-                    ClosetItems.Clear();
+                var categories = await _categoryRepo.GetAllCategories();
+                if (Categories.Count != 0)
+                    Categories.Clear();
 
-                foreach (var closetItem in closetItems)
-                    ClosetItems.Add(closetItem);
+                foreach (var category in categories)
+                    Categories.Add(category);
 
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Unable to get closetItems: {ex.Message}");
+                Debug.WriteLine($"Unable to get categories: {ex.Message}");
                 await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
             }
             finally
@@ -86,27 +87,15 @@ namespace MauiAppSandbox.ViewModels
         }
 
         [RelayCommand]
-        async Task GoToDetails(ClosetItem closetItem)
-        {
-            if (closetItem == null)
-                return;
-
-            await Shell.Current.GoToAsync(nameof(ClosetItemDetailsPage), true, new Dictionary<string, object>
-        {
-            {"ClosetItem", closetItem }
-        });
-        }
-
-        [RelayCommand]
-        async Task InsertClosetItem()
+        async Task InsertCategory()
         {
             if (IsBusy)
                 return;
 
             try
             {
-                await Shell.Current.GoToAsync(nameof(ClosetItemDetailsPage));
-
+                //await Shell.Current.GoToAsync(nameof(CategoryDetailsPage));
+                await Shell.Current.DisplayAlert("Insert", "This is where the insert will happen", "OK");
             }
             catch (Exception ex)
             {

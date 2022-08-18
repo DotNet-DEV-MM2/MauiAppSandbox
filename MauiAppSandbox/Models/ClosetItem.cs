@@ -1,8 +1,15 @@
-﻿namespace MauiAppSandbox.Models
+﻿using SQLite;
+
+namespace MauiAppSandbox.Models
 {
+    [Table("closetitems")]
     public class ClosetItem
     {
+        [PrimaryKey, AutoIncrement]
+        public int ClosetItemId { get; set; }
         public string PictureUri { get; set; }
+
+        [MaxLength(250), Unique]
         public string Name { get; set; }
         public string Description { get; set; }
         public string Size { get; set; }

@@ -2,21 +2,21 @@
 
 namespace MauiAppSandbox.Services
 {
-    public class ClosetItemService
+    public class CategoryHTTPService
     {
         HttpClient httpClient;
 
-        public ClosetItemService()
+        public CategoryHTTPService()
         {
             this.httpClient = new HttpClient();
         }
 
-        List<ClosetItem> closetItemList;
+        List<Category> categoryList;
 
-        public async Task<List<ClosetItem>> GetClosetItems()
+        public async Task<List<Category>> GetCategories()
         {
-            if (closetItemList?.Count > 0)
-                return closetItemList;
+            if (categoryList?.Count > 0)
+                return categoryList;
 
             // Online
             /*var response = await httpClient.GetAsync("https://www.montemagno.com/monkeys.json");
@@ -26,12 +26,12 @@ namespace MauiAppSandbox.Services
             }*/
 
             // Offline
-            using var stream = await FileSystem.OpenAppPackageFileAsync("closetitemdata.json");
+            using var stream = await FileSystem.OpenAppPackageFileAsync("categorydata.json");
             using var reader = new StreamReader(stream);
             var contents = await reader.ReadToEndAsync();
-            closetItemList = JsonSerializer.Deserialize<List<ClosetItem>>(contents);
+            categoryList = JsonSerializer.Deserialize<List<Category>>(contents);
 
-            return closetItemList;
+            return categoryList;
         }
     }
 }

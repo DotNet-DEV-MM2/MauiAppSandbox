@@ -3,13 +3,37 @@
     x:Class="MauiAppSandbox.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:view="clr-namespace:MauiAppSandbox.Views"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:views="clr-namespace:MauiAppSandbox.Views">
+      
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="ClosetItems">
+            <ShellContent Title="All"
+                          ContentTemplate="{DataTemplate views:MainPage}" />
+            <ShellContent Title="Season"
+                          ContentTemplate="{DataTemplate views:MainPage}" />
+            <ShellContent Title="Type"
+                          ContentTemplate="{DataTemplate views:MainPage}" />
+            <ShellContent Title="Size"
+                          Icon="autumn.png"
+                          ContentTemplate="{DataTemplate views:MainPage}" />
+            <ShellContent Title="Favs"
+                          Icon="dog.png"
+                          ContentTemplate="{DataTemplate views:MainPage}" />
+        </Tab>
+        <ShellContent Title="Admin"
+                      Icon="graph.svg"
+                      ContentTemplate="{DataTemplate views:CategoriesView}" />
+        <ShellContent Title="User Settings"
+                      Icon="setting.svg"
+                      ContentTemplate="{DataTemplate views:CategoriesView}" />
+        <ShellContent Title="About"
+                      Icon="autumn.png"
+                      ContentTemplate="{DataTemplate views:CategoriesView}" />
+    </FlyoutItem>
 
-    <ShellContent
-        Shell.NavBarIsVisible="true"
-        Title="Closet Items"
-        ContentTemplate="{DataTemplate view:MainPage}"
-        Route="MainPage" />
+    <ShellContent Title="Logout"
+                  Icon="logout.png"
+                  ContentTemplate="{DataTemplate views:CategoriesView}" />
 
 </Shell>
+

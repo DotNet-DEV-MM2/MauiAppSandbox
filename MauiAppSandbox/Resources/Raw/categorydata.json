@@ -1,0 +1,164 @@
+﻿[
+
+    {
+        "CategoryId" : 1,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Type",
+        "CategoryName" : "Top",
+        "CategoryTitle" : "Tops",
+        "IconGlyph" : "noun-shirt-3013538.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-shirt-3013538.png"
+    },
+    {
+        "CategoryId" : 2,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Type",
+        "CategoryName" : "Bottom",
+        "CategoryTitle" : "Bottoms",
+        "IconGlyph" : "noun-shirt-3013538.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-shirt-3013538.png"
+    },
+    {
+        "CategoryId" : 3,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Type",
+        "CategoryName" : "Dress",
+        "CategoryTitle" : "Dresses",
+        "IconGlyph" : "noun-dress-3013536.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-dress-3013536.png"
+    },
+    {
+        "CategoryId" : 4,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Type",
+        "CategoryName" : "Outerwear",
+        "CategoryTitle" : "Outerwear",
+        "IconGlyph" : "noun-puffer-vest-2200104.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-puffer-vest-2200104.png"
+    },
+    {
+        "CategoryId" : 5,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Type",
+        "CategoryName" : "Footwear",
+        "CategoryTitle" : "Footwear",
+        "IconGlyph" : "noun-shoe-1202591.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-shoe-1202591.png"
+    },
+    {
+        "CategoryId" : 6,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Type",
+        "CategoryName" : "Accessory",
+        "CategoryTitle" : "Accessories",
+        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-scarf-3790978.png"
+    },
+    {
+        "CategoryId" : 7,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Season",
+        "CategoryName" : "Winter",
+        "CategoryTitle" : "Winter",
+        "IconGlyph" : "noun-snowflake-2098252.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-shirt-3013538.png"
+    },
+    {
+        "CategoryId" : 8,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Season",
+        "CategoryName" : "Spring",
+        "CategoryTitle" : "Spring",
+        "IconGlyph" : "noun-shirt-3013538.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-shirt-3013538.png"
+    },
+    {
+        "CategoryId" : 9,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Season",
+        "CategoryName" : "Summer",
+        "CategoryTitle" : "Summer",
+        "IconGlyph" : "noun-sun-2494511.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-shirt-3013538.png"
+    },
+    {
+        "CategoryId" : 10,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Season",
+        "CategoryName" : "Fall",
+        "CategoryTitle" : "Fall",
+        "IconGlyph" : "noun-autumn-3789702.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-shirt-3013538.png"
+    },
+    {
+        "CategoryId" : 11,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Season",
+        "CategoryName" : "Always",
+        "CategoryTitle" : "Always",
+        "IconGlyph" : "noun-dress-3013536.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-shirt-3013538.png"
+    },
+    {
+        "CategoryId" : 12,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Size",
+        "CategoryName" : "Small",
+        "CategoryTitle" : "Small",
+        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-scarf-3790978.png"
+    },
+    {
+        "CategoryId" : 13,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Size",
+        "CategoryName" : "Medium",
+        "CategoryTitle" : "Medium",
+        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-scarf-3790978.png"
+    },
+    {
+        "CategoryId" : 14,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Size",
+        "CategoryName" : "Large",
+        "CategoryTitle" : "Large",
+        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-scarf-3790978.png"
+    },
+    {
+        "CategoryId" : 15,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Size",
+        "CategoryName" : "XLarge",
+        "CategoryTitle" : "XLarge",
+        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-scarf-3790978.png"
+    },
+    {
+        "CategoryId" : 16,
+        "Color" : "#B96CBD",
+        "CategoryType" : "Size",
+        "CategoryName" : "XSmall",
+        "CategoryTitle" : "XSmall",
+        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconFamily" : "FontAwesome-Regular",
+        "PictureUri" : "noun-scarf-3790978.png"
+    }
+
+]

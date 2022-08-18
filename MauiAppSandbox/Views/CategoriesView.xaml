@@ -1,14 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="MauiAppSandbox.Views.MainPage"
-             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppSandbox.Views.CategoriesView"
              xmlns:model="clr-namespace:MauiAppSandbox.Models"
              xmlns:viewmodel="clr-namespace:MauiAppSandbox.ViewModels"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              ios:Page.UseSafeArea="True"
-             Title="Closet Items"
-             x:DataType="viewmodel:ClosetItemsViewModel">
-
+             x:DataType="viewmodel:CategoriesViewModel"
+             Title="Categories">
     <Grid
         ColumnDefinitions="*,*"
         ColumnSpacing="5"
@@ -16,10 +15,10 @@
         RowSpacing="0">
         <RefreshView
             Grid.ColumnSpan="2"
-            Command="{Binding GetClosetItemsCommand}"
+            Command="{Binding GetCategoriesCommand}"
             IsRefreshing="{Binding IsRefreshing}">
             <CollectionView
-                ItemsSource="{Binding ClosetItems}"
+                ItemsSource="{Binding Categories}"
                 SelectionMode="None">
                 <!--<CollectionView.EmptyView>
                     <StackLayout Padding="100">
@@ -33,12 +32,12 @@
                     <GridItemsLayout  Orientation="Horizontal" Span="3"/>
                 </CollectionView.ItemsLayout>-->
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:ClosetItem">
+                    <DataTemplate x:DataType="model:Category">
                         <Grid Padding="10">
                             <Frame HeightRequest="125" Style="{StaticResource CardView}">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer 
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ClosetItemsViewModel}}, Path=GoToDetailsCommand}"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CategoriesViewModel}}, Path=GoToCategoryDetailsCommand}"
                                         CommandParameter="{Binding .}"/>
                                 </Frame.GestureRecognizers>
                                 <Grid Padding="0" ColumnDefinitions="125,*">
@@ -50,9 +49,13 @@
                                     <VerticalStackLayout
                                         Grid.Column="1"
                                         Padding="10">
-                                        <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
-                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding Description}" />
-                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding Location}" />
+                                        <Label Style="{StaticResource LargeLabel}" Text="{Binding CategoryType}" />
+                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding CategoryName}" />
+                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding CategoryTitle}" />
+                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding Color}" />
+                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding PictureUri}" />
+                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding IconFamily}" />
+                                        <Label Style="{StaticResource MediumLabel}" Text="{Binding IconGlyph}" />
                                     </VerticalStackLayout>
                                 </Grid>
                             </Frame>
@@ -66,17 +69,17 @@
             Grid.Row="1"
             Grid.Column="0"
             Margin="8"
-            Command="{Binding GetClosetItemsCommand}"
+            Command="{Binding GetCategoriesCommand}"
             IsEnabled="{Binding IsNotBusy}"
             Style="{StaticResource ButtonOutline}"
-            Text="Get ClosetItems" />
+            Text="Get Categories" />
 
         <!--  Add this  -->
         <Button
             Grid.Row="1"
             Grid.Column="1"
             Margin="8"
-            Command="{Binding InsertClosetItemCommand}"
+            Command="{Binding InsertCategoryCommand}"
             IsEnabled="{Binding IsNotBusy}"
             Style="{StaticResource ButtonOutline}"
             Text="Add New Closet Item" />
