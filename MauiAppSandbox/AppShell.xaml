@@ -20,7 +20,7 @@
                           Icon="dog.png"
                           ContentTemplate="{DataTemplate views:MainPage}" />
         </Tab>
-        <ShellContent Title="Admin"
+        <ShellContent Title="Category Admin"
                       Icon="graph.svg"
                       ContentTemplate="{DataTemplate views:CategoriesView}" />
         <ShellContent Title="User Settings"
