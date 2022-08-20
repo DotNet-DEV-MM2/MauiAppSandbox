@@ -24,9 +24,9 @@
         <ShellContent Title="User Settings"
                       Icon="setting.svg"
                       ContentTemplate="{DataTemplate views:CategoriesPage}" />
-        <ShellContent Title="About"
+        <ShellContent Title="Reseed Tables"
                       Icon="autumn.png"
-                      ContentTemplate="{DataTemplate views:CategoriesPage}" />
+                      ContentTemplate="{DataTemplate views:AdminPage}" />
     </FlyoutItem>
 
     <ShellContent Title="Logout"

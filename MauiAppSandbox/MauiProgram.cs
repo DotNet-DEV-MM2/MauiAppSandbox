@@ -32,6 +32,7 @@ public static class MauiProgram
         /* builder.Services.AddSingleton<ClosetItemSQLiteRepository>();
         builder.Services.AddSingleton<CategorySQLiteRepository>();*/
         // register views and viewmodels
+
         // closet
         builder.Services.AddSingleton<ClosetItemsViewModel>();
         builder.Services.AddSingleton<MainPage>();
@@ -39,11 +40,17 @@ public static class MauiProgram
         builder.Services.AddTransient<ClosetItemDetailsPage>();
         builder.Services.AddSingleton<AddClosetItemViewModel>();
         builder.Services.AddSingleton<AddClosetItemPage>();
+
         // categories
         builder.Services.AddSingleton<CategoriesViewModel>();
         builder.Services.AddSingleton<CategoriesPage>();
         builder.Services.AddSingleton<AddCategoryViewModel>();
         builder.Services.AddSingleton<AddCategoryPage>();
+
+        // admin
+        builder.Services.AddSingleton<AdminPage>();
+        builder.Services.AddSingleton<AdminViewModel>();
+
         return builder.Build();
     }
 }
