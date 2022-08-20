@@ -1,12 +1,4 @@
-﻿using MauiAppSandbox.Services;
-using MauiAppSandbox.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MauiAppSandbox.ViewModels
+﻿namespace MauiAppSandbox.ViewModels
 {
     public partial class CategoriesViewModel : BaseViewModel
     {
@@ -94,8 +86,7 @@ namespace MauiAppSandbox.ViewModels
 
             try
             {
-                //await Shell.Current.GoToAsync(nameof(CategoryDetailsPage));
-                await Shell.Current.DisplayAlert("Insert", "This is where the insert will happen", "OK");
+                await Shell.Current.GoToAsync(nameof(AddCategoryPage));
             }
             catch (Exception ex)
             {

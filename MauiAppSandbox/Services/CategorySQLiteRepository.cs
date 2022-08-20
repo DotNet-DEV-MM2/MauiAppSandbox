@@ -49,7 +49,7 @@ namespace MauiAppSandbox.Services
                 if (string.IsNullOrEmpty(category.CategoryName))
                     throw new Exception("Valid name required");
 
-                result = await conn.InsertAsync(new Category { CategoryName = category.CategoryName });
+                result = await conn.InsertAsync(category);
 
                 StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, category.CategoryName);
             }

@@ -2,6 +2,7 @@
 <ContentPage x:Class="MauiAppSandbox.Views.MainPage"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:model="clr-namespace:MauiAppSandbox.Models"
              xmlns:viewmodel="clr-namespace:MauiAppSandbox.ViewModels"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
@@ -68,7 +69,6 @@
             Margin="8"
             Command="{Binding GetClosetItemsCommand}"
             IsEnabled="{Binding IsNotBusy}"
-            Style="{StaticResource ButtonOutline}"
             Text="Get ClosetItems" />
 
         <!--  Add this  -->
@@ -78,8 +78,7 @@
             Margin="8"
             Command="{Binding InsertClosetItemCommand}"
             IsEnabled="{Binding IsNotBusy}"
-            Style="{StaticResource ButtonOutline}"
-            Text="Add New Closet Item" />
+            Text="Add Closet Item" />
 
 
         <ActivityIndicator

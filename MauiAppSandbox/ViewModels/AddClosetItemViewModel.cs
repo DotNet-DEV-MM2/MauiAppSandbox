@@ -14,51 +14,31 @@ namespace MauiAppSandbox.ViewModels
 
         IConnectivity connectivity;
 
-        [ObservableProperty]
-        List<Category> catItems;
+       // public ObservableCollection<Category> CatItems { get;  } = new();
+
+        public ObservableCollection<Category> SizeItems { get; } = new();
+
+        public ObservableCollection<Category> SeasonItems { get; } = new();
+
+        public ObservableCollection<Category>TypeItems { get; } = new();
 
         [ObservableProperty]
-        List<Category> sizeItems;
+        private Category selectedSeason;
 
         [ObservableProperty]
-        List<Category> seasonItems;
+        private string seasonText;
 
         [ObservableProperty]
-        List<Category> typeItems;
+        private Category selectedSize;
 
         [ObservableProperty]
-        Category selectedSeason;
+        private string sizeText;
 
         [ObservableProperty]
-        string seasonText;
-
-        /*[ObservableProperty]
-        Category selectedSize
-        {
-            get => selectedSize;
-            set
-            {
-                SetProperty(ref selectedSize, value);
-                sizeText = "Size is " + selectedSize.CategoryName;
-            }
-        }*/
+        Category selectedType;
 
         [ObservableProperty]
-        string sizeText;
-
-        /*[ObservableProperty]
-        Category selectedType
-        {
-            get => selectedType;
-            set
-            {
-                SetProperty(ref selectedType, value);
-                typeText = "Type is " + selectedType.CategoryName;
-            }
-        }*/
-
-        [ObservableProperty]
-        string typeText;
+        private string typeText;
 
         [ObservableProperty]
         string name;
@@ -68,13 +48,6 @@ namespace MauiAppSandbox.ViewModels
 
         [ObservableProperty]
         string pictureUri;
-
-        [RelayCommand]
-        async void AddClosetItemCommand()
-        {
-            Console.WriteLine("AddClosetItemCommand");
-            await SaveNewClosetItem();
-        }
 
         public AddClosetItemViewModel(ClosetItemSQLiteRepository closetItemRepo,
              CategorySQLiteRepository categoryRepo,
@@ -86,36 +59,64 @@ namespace MauiAppSandbox.ViewModels
             this.connectivity = connectivity;
         }
 
-        public async void OnNavigatedTo()
+        [RelayCommand]
+        public async void Init()
         {
-            catItems = await _categoryRepo.GetAllCategories();
-            seasonItems = catItems.Where(i => i.CategoryType == "Season").ToList();
-            typeItems = catItems.Where(i => i.CategoryType == "Type").ToList();
-            sizeItems = catItems.Where(i => i.CategoryType == "Size").ToList();
+            var catItems = await _categoryRepo.GetAllCategories();
+            var catCount = catItems.Count;
+            await Shell.Current.DisplayAlert("OnNavigatedTo: How many cats", catCount.ToString(), "OK");
+
+            foreach(var catItem in catItems)
+            {
+                if (catItem.CategoryType == "Season")
+                {
+                    SeasonItems.Add(catItem);
+                }
+            }
+
+            foreach (var catItem in catItems)
+            {
+                if (catItem.CategoryType == "Type")
+                {
+                    TypeItems.Add(catItem);
+                }
+            }
+
+            foreach (var catItem in catItems)
+            {
+                if (catItem.CategoryType == "Size")
+                {
+                    SizeItems.Add(catItem);
+                }
+            }
+
             Title = "Add Your Item";
 
         }
 
-
-        private async Task SaveNewClosetItem()
+        [RelayCommand]
+        private async Task SaveClosetItem()
         {
-            /*var closetitem = new ClosetItem
-            {
-                Name = name,
-                Description = description,
-                Size = selectedSize.CategoryName,
-                Season = selectedSeason.CategoryName,
-                Type = selectedType.CategoryName,
-                PictureUri = "dress_red_1.png",
-            };*/
+            /*catItems = await _categoryRepo.GetAllCategories();
+            var cat1Count = catItems.Count;
+            await Shell.Current.DisplayAlert("SaveClosetITem: How many cats", cat1Count.ToString(), "OK");*/
+        /*var closetitem = new ClosetItem
+        {
+            Name = name,
+            Description = description,
+            Size = selectedSize.CategoryName,
+            Season = selectedSeason.CategoryName,
+            Type = selectedType.CategoryName,
+            PictureUri = "dress_red_1.png",
+        };*/
 
             var closetitem = new ClosetItem
             {
-                Name = name,
-                Description = description,
-                Size = "Medium",
-                Season = selectedSeason.CategoryName,
-                Type = "Dress",
+                Name = Name,
+                Description = Description,
+                Size = SelectedSize.CategoryTitle,
+                Season = SelectedSeason.CategoryTitle,
+                Type = SelectedType.CategoryTitle,
                 PictureUri = "dress_red_1.png",
             };
 

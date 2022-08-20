@@ -71,7 +71,6 @@
             Margin="8"
             Command="{Binding GetCategoriesCommand}"
             IsEnabled="{Binding IsNotBusy}"
-            Style="{StaticResource ButtonOutline}"
             Text="Get Categories" />
 
         <!--  Add this  -->
@@ -81,9 +80,7 @@
             Margin="8"
             Command="{Binding InsertCategoryCommand}"
             IsEnabled="{Binding IsNotBusy}"
-            Style="{StaticResource ButtonOutline}"
-            Text="Add New Closet Item" />
-
+            Text="Add Category"/>
 
         <ActivityIndicator
             Grid.RowSpan="2"

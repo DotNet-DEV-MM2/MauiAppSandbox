@@ -55,7 +55,7 @@ namespace MauiAppSandbox.Services
                 if (string.IsNullOrEmpty(closetitem.Name))
                     throw new Exception("Valid name required");
 
-                result = await conn.InsertAsync(new ClosetItem { Name = closetitem.Name });
+                result = await conn.InsertAsync(closetitem);
 
                 StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, closetitem.Name);
             }

@@ -38,8 +38,7 @@
                         Command="{Binding OpenMapCommand}"
                         HorizontalOptions="Center" 
                         WidthRequest="200" 
-                        Margin="8"
-                        Style="{StaticResource ButtonOutline}"/>
+                        Margin="8"/>
 
                 <Label Style="{StaticResource MediumLabel}" Text="{Binding ClosetItem.Description}" />
                 <Label Style="{StaticResource MicroLabel}" Text="{Binding ClosetItem.Location, StringFormat='Location: {0}'}" />

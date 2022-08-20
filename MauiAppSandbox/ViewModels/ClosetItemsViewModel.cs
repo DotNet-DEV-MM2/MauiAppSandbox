@@ -105,7 +105,7 @@ namespace MauiAppSandbox.ViewModels
 
             try
             {
-                await Shell.Current.GoToAsync(nameof(ClosetItemDetailsPage));
+                await Shell.Current.GoToAsync(nameof(AddClosetItemPage));
 
             }
             catch (Exception ex)
