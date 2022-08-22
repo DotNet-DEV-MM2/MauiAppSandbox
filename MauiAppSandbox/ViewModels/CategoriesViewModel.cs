@@ -1,6 +1,6 @@
 ﻿namespace MauiAppSandbox.ViewModels
 {
-    public partial class CategoriesViewModel : BaseViewModel
+    public partial class CategoriesViewModel : ViewModelBase
     {
         public ObservableCollection<Category> Categories { get; } = new();
 
@@ -21,7 +21,6 @@
             IConnectivity connectivity)
 
         {
-            Title = "Category Finder";
 
             // if getting data from http service
             // this.categoryService = categoryService;
@@ -38,8 +37,8 @@
         [RelayCommand]
         async Task GetCategoriesAsync()
         {
-            if (IsBusy)
-                return;
+           /* if (IsBusy)
+                return;*/
 
             try
             {
@@ -51,7 +50,7 @@
                     return;
                 }*/
 
-                IsBusy = true;
+               // IsBusy = true;
 
                 // if using static data
                 //var categories = await categoryService.GetCategories();
@@ -70,29 +69,14 @@
                 Debug.WriteLine($"Unable to get categories: {ex.Message}");
                 await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
             }
-            finally
+           /* finally
             {
                 IsBusy = false;
                 IsRefreshing = false;
-            }
+            }*/
 
         }
 
-        [RelayCommand]
-        async Task InsertCategory()
-        {
-            if (IsBusy)
-                return;
-
-            try
-            {
-                await Shell.Current.GoToAsync(nameof(AddCategoryPage));
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Unable to open Details Page: {ex.Message}");
-                await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
-            }
-        }
+       
     }
 }

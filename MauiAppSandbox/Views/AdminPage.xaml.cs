@@ -1,6 +1,6 @@
 namespace MauiAppSandbox.Views;
 
-public partial class AdminPage : ContentPage
+public partial class AdminPage : ContentPageBase
 {
 	public AdminPage(AdminViewModel vm)
 	{

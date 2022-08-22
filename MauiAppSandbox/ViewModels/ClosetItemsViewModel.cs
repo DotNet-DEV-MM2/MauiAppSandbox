@@ -3,7 +3,7 @@ using MauiAppSandbox.Views;
 
 namespace MauiAppSandbox.ViewModels
 {
-    public partial class ClosetItemsViewModel : BaseViewModel
+    public partial class ClosetItemsViewModel : ViewModelBase
     {
         public ObservableCollection<ClosetItem> ClosetItems { get; } = new();
 
@@ -27,7 +27,6 @@ namespace MauiAppSandbox.ViewModels
             IGeolocation geolocation)
 
         {
-            Title = "ClosetItem Finder";
 
             // if getting data from http service
             // this.closetItemService = closetItemService;
@@ -45,8 +44,8 @@ namespace MauiAppSandbox.ViewModels
         [RelayCommand]
         async Task GetClosetItemsAsync()
         {
-            if (IsBusy)
-                return;
+            /*if (IsBusy)
+                return;*/
 
             try
             {
@@ -58,7 +57,7 @@ namespace MauiAppSandbox.ViewModels
                     return;
                 }*/
 
-                IsBusy = true;
+                //IsBusy = true;
 
                 // if using static data
                 //var closetItems = await closetItemService.GetClosetItems();
@@ -77,42 +76,12 @@ namespace MauiAppSandbox.ViewModels
                 Debug.WriteLine($"Unable to get closetItems: {ex.Message}");
                 await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
             }
-            finally
+           /* finally
             {
                 IsBusy = false;
                 IsRefreshing = false;
-            }
+            }*/
 
-        }
-
-        [RelayCommand]
-        async Task GoToDetails(ClosetItem closetItem)
-        {
-            if (closetItem == null)
-                return;
-
-            await Shell.Current.GoToAsync(nameof(ClosetItemDetailsPage), true, new Dictionary<string, object>
-        {
-            {"ClosetItem", closetItem }
-        });
-        }
-
-        [RelayCommand]
-        async Task InsertClosetItem()
-        {
-            if (IsBusy)
-                return;
-
-            try
-            {
-                await Shell.Current.GoToAsync(nameof(AddClosetItemPage));
-
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Unable to open Details Page: {ex.Message}");
-                await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
-            }
         }
     }
 }

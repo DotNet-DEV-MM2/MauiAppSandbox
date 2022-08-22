@@ -35,18 +35,11 @@ public static class MauiProgram
 
         // closet
         builder.Services.AddSingleton<ClosetItemsViewModel>();
-        builder.Services.AddSingleton<MainPage>();
-        builder.Services.AddTransient<ClosetItemDetailsViewModel>();
-        builder.Services.AddTransient<ClosetItemDetailsPage>();
-        builder.Services.AddSingleton<AddClosetItemViewModel>();
-        builder.Services.AddSingleton<AddClosetItemPage>();
+        builder.Services.AddSingleton<ClosetItemsPage>();
 
         // categories
         builder.Services.AddSingleton<CategoriesViewModel>();
         builder.Services.AddSingleton<CategoriesPage>();
-        builder.Services.AddSingleton<AddCategoryViewModel>();
-        builder.Services.AddSingleton<AddCategoryPage>();
-
         // admin
         builder.Services.AddSingleton<AdminPage>();
         builder.Services.AddSingleton<AdminViewModel>();

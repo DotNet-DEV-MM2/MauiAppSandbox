@@ -8,15 +8,15 @@
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <Tab Title="ClosetItems">
             <ShellContent Title="All"
-                          ContentTemplate="{DataTemplate views:MainPage}" />
+                          ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
             <ShellContent Title="Season"
-                          ContentTemplate="{DataTemplate views:MainPage}" />
+                          ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
             <ShellContent Title="Type"
-                          ContentTemplate="{DataTemplate views:MainPage}" />
+                          ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
             <ShellContent Title="Size"
-                          ContentTemplate="{DataTemplate views:MainPage}" />
+                          ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
             <ShellContent Title="Favs"
-                          ContentTemplate="{DataTemplate views:MainPage}" />
+                          ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
         </Tab>
         <ShellContent Title="Category Admin"
                       Icon="graph.svg"

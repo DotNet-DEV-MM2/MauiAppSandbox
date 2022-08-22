@@ -1,6 +1,6 @@
 namespace MauiAppSandbox.Views;
 
-public partial class CategoriesPage : ContentPage
+public partial class CategoriesPage : ContentPageBase
 {
 	public CategoriesPage(CategoriesViewModel vm)
 	{

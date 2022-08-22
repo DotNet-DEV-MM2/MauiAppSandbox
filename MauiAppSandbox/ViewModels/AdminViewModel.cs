@@ -1,7 +1,7 @@
 ﻿namespace MauiAppSandbox.ViewModels
 {
    
-    public partial class AdminViewModel : BaseViewModel
+    public partial class AdminViewModel : ViewModelBase
     {
         CategorySQLiteRepository _categoryRepo;
         ClosetItemSQLiteRepository _closetItemRepo;

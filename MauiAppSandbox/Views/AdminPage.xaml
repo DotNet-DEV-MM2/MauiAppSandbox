@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="MauiAppSandbox.Views.AdminPage"
+<views:ContentPageBase x:Class="MauiAppSandbox.Views.AdminPage"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             xmlns:viewmodels="clr-namespace:MauiAppSandbox"
+             xmlns:viewModelBase="clr-namespace:MauiAppSandbox.ViewModels.Base"
+             xmlns:viewmodels="clr-namespace:MauiAppSandbox.ViewModels"
+             xmlns:views="clr-namespace:MauiAppSandbox.Views"
              x:Name="AddClosetItemPageName"
              Title="AdminPage">
     <VerticalStackLayout>
@@ -18,4 +20,4 @@
         <Button Text="Reseed Closet Item Table"
                 Command="{Binding ReseedClosetItemsCommand}"/>
     </VerticalStackLayout>
-</ContentPage>
+</views:ContentPageBase>

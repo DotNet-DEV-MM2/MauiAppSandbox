@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="MauiAppSandbox.Views.MainPage"
+<views:ContentPageBase x:Class="MauiAppSandbox.Views.ClosetItemsPage"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:model="clr-namespace:MauiAppSandbox.Models"
-             xmlns:viewmodel="clr-namespace:MauiAppSandbox.ViewModels"
+             xmlns:viewModelBase="clr-namespace:MauiAppSandbox.ViewModels.Base"
+             xmlns:viewmodels="clr-namespace:MauiAppSandbox.ViewModels"
+             xmlns:views="clr-namespace:MauiAppSandbox.Views"
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              ios:Page.UseSafeArea="True"
              Title="Closet Items"
-             x:DataType="viewmodel:ClosetItemsViewModel">
+             x:DataType="viewmodels:ClosetItemsViewModel">
 
     <Grid
         ColumnDefinitions="*,*"
@@ -37,11 +39,7 @@
                     <DataTemplate x:DataType="model:ClosetItem">
                         <Grid Padding="10">
                             <Frame HeightRequest="125" Style="{StaticResource CardView}">
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer 
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ClosetItemsViewModel}}, Path=GoToDetailsCommand}"
-                                        CommandParameter="{Binding .}"/>
-                                </Frame.GestureRecognizers>
+                                
                                 <Grid Padding="0" ColumnDefinitions="125,*">
                                     <Image
                                         Aspect="AspectFill"
@@ -71,16 +69,6 @@
             IsEnabled="{Binding IsNotBusy}"
             Text="Get ClosetItems" />
 
-        <!--  Add this  -->
-        <Button
-            Grid.Row="1"
-            Grid.Column="1"
-            Margin="8"
-            Command="{Binding InsertClosetItemCommand}"
-            IsEnabled="{Binding IsNotBusy}"
-            Text="Add Closet Item" />
-
-
         <ActivityIndicator
             Grid.RowSpan="2"
             Grid.ColumnSpan="2"
@@ -90,4 +78,4 @@
             VerticalOptions="CenterAndExpand" />
     </Grid>
 
-</ContentPage>
+</views:ContentPageBase>
