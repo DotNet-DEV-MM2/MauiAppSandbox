@@ -1,49 +1,51 @@
-﻿using MauiAppSandbox.Services;
-using MauiAppSandbox.Views;
-using CommunityToolkit.Maui;
+﻿using CommunityToolkit.Maui;
+using MauiAppSandbox.Services;
 
 namespace MauiAppSandbox;
 public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
-    {
-        var builder = MauiApp.CreateBuilder();
-        builder
+        => MauiApp
+            .CreateBuilder()
             .UseMauiApp<App>()
-            .ConfigureFonts(fonts =>
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(
+                fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 })
-            .UseMauiCommunityToolkit();
-        string dbPath = FileAccessHelper.GetLocalFilePath("closet.db3");
-        Console.WriteLine("DbPath is: " + dbPath);
-        builder.Services.AddSingleton<ClosetItemSQLiteRepository>(s => ActivatorUtilities.CreateInstance<ClosetItemSQLiteRepository>(s, dbPath));
-        builder.Services.AddSingleton<CategorySQLiteRepository>(s => ActivatorUtilities.CreateInstance<CategorySQLiteRepository>(s, dbPath));
-        // add services
-        builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
-        builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
-        builder.Services.AddSingleton<IMap>(Map.Default);
-        //  register services for connection to data
-        //  http
-        /* builder.Services.AddSingleton<ClosetItemHTTPService>();
-        builder.Services.AddSingleton<CategoryHTTPService>();*/
-        // sqlite
-        /* builder.Services.AddSingleton<ClosetItemSQLiteRepository>();
-        builder.Services.AddSingleton<CategorySQLiteRepository>();*/
-        // register views and viewmodels
+            .RegisterAppServices()
+            .RegisterViewModels()
+            .RegisterViews() 
+            .Build();
 
-        // closet
-        builder.Services.AddSingleton<ClosetItemsViewModel>();
-        builder.Services.AddSingleton<ClosetItemsPage>();
 
-        // categories
-        builder.Services.AddSingleton<CategoriesViewModel>();
-        builder.Services.AddSingleton<CategoriesPage>();
-        // admin
-        builder.Services.AddSingleton<AdminPage>();
-        builder.Services.AddSingleton<AdminViewModel>();
+    public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder mauiAppBuilder)
+    {
+        string dbPath = FileAccessHelper.GetLocalFilePath("MauiAppSandboxDb.db3");
+        mauiAppBuilder.Services.AddSingleton<CategoryService>(s => ActivatorUtilities.CreateInstance<CategoryService>(s, dbPath));
+        mauiAppBuilder.Services.AddSingleton<ClosetItemService>(s => ActivatorUtilities.CreateInstance<ClosetItemService>(s, dbPath));
 
-        return builder.Build();
+
+        return mauiAppBuilder;
+    }
+
+    public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
+    {
+        mauiAppBuilder.Services.AddSingleton<CategoriesViewModel>();
+        mauiAppBuilder.Services.AddSingleton<ClosetItemsViewModel>();
+        mauiAppBuilder.Services.AddSingleton<AdminViewModel>();
+
+        return mauiAppBuilder;
+    }
+
+    public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
+    {
+        mauiAppBuilder.Services.AddSingleton<CategoriesPage>();
+        mauiAppBuilder.Services.AddSingleton<ClosetItemsPage>();
+        mauiAppBuilder.Services.AddSingleton<AdminPage>();
+
+        return mauiAppBuilder;
     }
 }

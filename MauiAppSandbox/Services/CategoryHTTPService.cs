@@ -25,11 +25,11 @@ namespace MauiAppSandbox.Services
                 closetItemList = await response.Content.ReadFromJsonAsync<List<ClosetItem>>();
             }*/
 
-            // Offline
-            using var stream = await FileSystem.OpenAppPackageFileAsync("categorydata.json");
-            using var reader = new StreamReader(stream);
-            var contents = await reader.ReadToEndAsync();
-            categoryList = JsonSerializer.Deserialize<List<Category>>(contents);
+            /* // Offline
+             using var stream = await FileSystem.OpenAppPackageFileAsync("categorydata.json");
+             using var reader = new StreamReader(stream);
+             var contents = await reader.ReadToEndAsync();
+             categoryList = JsonSerializer.Deserialize<List<Category>>(contents);*/
 
             return categoryList;
         }

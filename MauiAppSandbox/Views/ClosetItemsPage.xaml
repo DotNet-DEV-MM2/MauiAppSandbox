@@ -17,10 +17,10 @@
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
         RowSpacing="0">
-        <RefreshView
+        <!--<RefreshView
             Grid.ColumnSpan="2"
             Command="{Binding GetClosetItemsCommand}"
-            IsRefreshing="{Binding IsRefreshing}">
+            IsRefreshing="{Binding IsRefreshing}">-->
             <CollectionView
                 ItemsSource="{Binding ClosetItems}"
                 SelectionMode="None">
@@ -59,15 +59,14 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </RefreshView>
-
+       <!-- </RefreshView>-->
         <Button
             Grid.Row="1"
             Grid.Column="0"
             Margin="8"
             Command="{Binding GetClosetItemsCommand}"
             IsEnabled="{Binding IsNotBusy}"
-            Text="Get ClosetItems" />
+            Text="Get Categories" />
 
         <ActivityIndicator
             Grid.RowSpan="2"

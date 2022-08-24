@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace MauiAppSandbox.Services
 {
-    public class ClosetItemSQLiteRepository
+    public class ClosetItemService
     {
         string _dbPath;
 
         public string StatusMessage { get; set; }
 
-        // TODO: Add variable for the SQLite connection
         private SQLiteAsyncConnection conn;
 
         private async Task Init()
@@ -24,7 +23,7 @@ namespace MauiAppSandbox.Services
             conn = new SQLiteAsyncConnection(_dbPath);
             await conn.CreateTableAsync<ClosetItem>();
         }
-        public ClosetItemSQLiteRepository(string dbPath)
+        public ClosetItemService(string dbPath)
         {
             _dbPath = dbPath;
         }
@@ -51,7 +50,6 @@ namespace MauiAppSandbox.Services
             {
                 await Init();
 
-                // basic validation to ensure a name was entered
                 if (string.IsNullOrEmpty(closetitem.Name))
                     throw new Exception("Valid name required");
 
@@ -64,6 +62,11 @@ namespace MauiAppSandbox.Services
                 StatusMessage = string.Format("Failed to add {0}. Error: {1}", closetitem.Name, ex.Message);
             }
 
+        }
+
+        public async Task DeleteAll()
+        {
+            await conn.Table<ClosetItem>().DeleteAsync();
         }
 
     }

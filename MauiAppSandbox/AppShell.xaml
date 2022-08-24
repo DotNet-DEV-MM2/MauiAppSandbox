@@ -4,34 +4,19 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:MauiAppSandbox.Views">
-      
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <Tab Title="ClosetItems">
-            <ShellContent Title="All"
-                          ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
-            <ShellContent Title="Season"
-                          ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
-            <ShellContent Title="Type"
-                          ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
-            <ShellContent Title="Size"
-                          ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
-            <ShellContent Title="Favs"
-                          ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
-        </Tab>
-        <ShellContent Title="Category Admin"
-                      Icon="graph.svg"
-                      ContentTemplate="{DataTemplate views:CategoriesPage}" />
-        <ShellContent Title="User Settings"
-                      Icon="setting.svg"
-                      ContentTemplate="{DataTemplate views:CategoriesPage}" />
-        <ShellContent Title="Reseed Tables"
-                      Icon="autumn.png"
-                      ContentTemplate="{DataTemplate views:AdminPage}" />
-    </FlyoutItem>
 
-    <ShellContent Title="Logout"
-                  Icon="logout.png"
-                  ContentTemplate="{DataTemplate views:CategoriesPage}" />
+    <TabBar>
+        <ShellContent Title="Categories"
+                          Icon="graph.svg"
+                          ContentTemplate="{DataTemplate views:CategoriesPage}" />
+        <ShellContent Title="Closet Items"
+                          Icon="graph.svg"
+                          ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
+        <ShellContent Title="Category Admin"
+                          Icon="graph.svg"
+                          ContentTemplate="{DataTemplate views:AdminPage}" />
+
+    </TabBar>
 
 </Shell>
 

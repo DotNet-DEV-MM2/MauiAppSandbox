@@ -4,14 +4,17 @@ namespace MauiAppSandbox;
 
 public partial class App : Application
 {
-    //public static ClosetItemSQLiteRepository _closetItemRepository { get; private set; }
-    public App(ClosetItemSQLiteRepository closetItemRepository)
+    public static CategoryService _categoryService { get; private set; }
+    public static ClosetItemService _closetItemService { get; private set; }
+
+    public App(CategoryService categoryService, ClosetItemService closetItemService)
 	{
 		InitializeComponent();
 
 		MainPage = new AppShell();
 
-       // _closetItemRepository = closetItemRepository;
+        _categoryService = categoryService;
+        _closetItemService = closetItemService;
 
     }
 }

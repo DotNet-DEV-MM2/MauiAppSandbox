@@ -2,33 +2,40 @@
 
 namespace MauiAppSandbox.Services
 {
-    public class CategorySQLiteRepository
+   
+    public class CategoryService
     {
         string _dbPath;
 
         public string StatusMessage { get; set; }
 
-        private SQLiteAsyncConnection conn;
+        public SQLiteAsyncConnection conn;
 
-        private async Task Init()
+        async Task Init()
         {
             if (conn != null)
                 return;
 
             conn = new SQLiteAsyncConnection(_dbPath);
+
             await conn.CreateTableAsync<Category>();
         }
-        public CategorySQLiteRepository(string dbPath)
+
+        public CategoryService(string dbPath)
         {
             _dbPath = dbPath;
         }
+
 
         public async Task<List<Category>> GetAllCategories()
         {
             try
             {
                 await Init();
-                return await conn.Table<Category>().ToListAsync();
+                var tempList = await conn.Table<Category>().ToListAsync();
+
+                Debug.WriteLine("CategoryService:GetAllCategories, tempList count " + tempList.Count);
+                return tempList;
             }
             catch (Exception ex)
             {
@@ -45,7 +52,6 @@ namespace MauiAppSandbox.Services
             {
                 await Init();
 
-                // basic validation to ensure a name was entered
                 if (string.IsNullOrEmpty(category.CategoryName))
                     throw new Exception("Valid name required");
 
@@ -56,6 +62,24 @@ namespace MauiAppSandbox.Services
             catch (Exception ex)
             {
                 StatusMessage = string.Format("Failed to add {0}. Error: {1}", category.CategoryName, ex.Message);
+            }
+
+        }
+
+        public async Task DeleteAll()
+        {
+            try
+            {
+                await Init();
+                var result = await conn.Table<Category>().ToListAsync();
+                foreach (var item in result)
+                {
+                    await conn.DeleteAsync(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
             }
 
         }

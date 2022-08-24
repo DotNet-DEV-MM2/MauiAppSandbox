@@ -7,81 +7,40 @@ namespace MauiAppSandbox.ViewModels
     {
         public ObservableCollection<ClosetItem> ClosetItems { get; } = new();
 
-        // if getting data from http service
-        //ClosetItemHTTPService closetItemService;
-
-        // if getting data from local sqlite db
-        ClosetItemSQLiteRepository _closetItemRepo;
-
+        ClosetItemService _closetService;
+/*
         IConnectivity connectivity;
-        IGeolocation geolocation;
+        IGeolocation geolocation;*/
 
-        // if getting data from http service
-        /*public ClosetItemsViewModel(ClosetItemHTTPService closetItemService, 
-            IConnectivity connectivity, 
-            IGeolocation geolocation)*/
-
-        // if getting data from local sqlite db
-        public ClosetItemsViewModel(ClosetItemSQLiteRepository closetItemRepo,
-            IConnectivity connectivity,
-            IGeolocation geolocation)
+        public ClosetItemsViewModel(ClosetItemService closetService)
 
         {
 
-            // if getting data from http service
-            // this.closetItemService = closetItemService;
+            _closetService = closetService;
 
-            // if getting data from local sqlite db
-            _closetItemRepo = closetItemRepo;
+           /* this.connectivity = connectivity;
+            this.geolocation = geolocation;*/
+        }
 
-            this.connectivity = connectivity;
-            this.geolocation = geolocation;
+
+        [RelayCommand]
+        public override async Task InitializeAsync()
+        {
+            await GetClosetItems();
+        }
+
+        [RelayCommand]
+        async Task GetClosetItems()
+        {
+            var items = await _closetService.GetAllClosetItems();
+            if (ClosetItems.Count != 0)
+                ClosetItems.Clear();
+
+            foreach (var item in items)
+                ClosetItems.Add(item);
         }
 
         [ObservableProperty]
         bool isRefreshing;
-
-        [RelayCommand]
-        async Task GetClosetItemsAsync()
-        {
-            /*if (IsBusy)
-                return;*/
-
-            try
-            {
-                // if getting data from http service
-                /*if (connectivity.NetworkAccess != NetworkAccess.Internet)
-                {
-                    await Shell.Current.DisplayAlert("No connectivity!",
-                        $"Please check internet and try again.", "OK");
-                    return;
-                }*/
-
-                //IsBusy = true;
-
-                // if using static data
-                //var closetItems = await closetItemService.GetClosetItems();
-
-                // if using local sqlite db
-                var closetItems = await _closetItemRepo.GetAllClosetItems();
-                if (ClosetItems.Count != 0)
-                    ClosetItems.Clear();
-
-                foreach (var closetItem in closetItems)
-                    ClosetItems.Add(closetItem);
-
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Unable to get closetItems: {ex.Message}");
-                await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
-            }
-           /* finally
-            {
-                IsBusy = false;
-                IsRefreshing = false;
-            }*/
-
-        }
     }
 }

@@ -2,11 +2,11 @@
 
 namespace MauiAppSandbox.Models
 {
-    [Table("closetitems")]
+    [Table("ClosetItems")]
     public class ClosetItem
     {
         [PrimaryKey, AutoIncrement]
-        public int ClosetItemId { get; set; }
+        public int Id { get; set; }
         public string PictureUri { get; set; }
 
         [MaxLength(250), Unique]

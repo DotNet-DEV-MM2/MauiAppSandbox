@@ -19,6 +19,7 @@
             Grid.ColumnSpan="2"
             Command="{Binding GetCategoriesCommand}"
             IsRefreshing="{Binding IsRefreshing}">
+
             <CollectionView
                 ItemsSource="{Binding Categories}"
                 SelectionMode="None">
@@ -75,7 +76,6 @@
             IsEnabled="{Binding IsNotBusy}"
             Text="Get Categories" />
 
-     
         <ActivityIndicator
             Grid.RowSpan="2"
             Grid.ColumnSpan="2"

@@ -2,11 +2,11 @@
 
 namespace MauiAppSandbox.Models
 {
-    [Table("categories")]
+    [Table ("Categories")]
     public class Category
     {
         [PrimaryKey, AutoIncrement]
-        public int CategoryId { get; set; }
+        public int Id { get; set; }
         public string Color { get; set; }
         public string CategoryType { get; set; }
         public string CategoryName { get; set; }

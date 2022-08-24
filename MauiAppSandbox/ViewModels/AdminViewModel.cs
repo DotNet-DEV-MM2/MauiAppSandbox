@@ -1,32 +1,36 @@
-﻿namespace MauiAppSandbox.ViewModels
+﻿using MauiAppSandbox.Services;
+
+namespace MauiAppSandbox.ViewModels
 {
-   
+
     public partial class AdminViewModel : ViewModelBase
     {
-        CategorySQLiteRepository _categoryRepo;
-        ClosetItemSQLiteRepository _closetItemRepo;
+        CategoryService _categoryService;
+        ClosetItemService _closetItemService;
 
         List<Category> categoryList;
         List<ClosetItem> closetItemList;
 
-        public AdminViewModel(CategorySQLiteRepository categoryRepo, ClosetItemSQLiteRepository closetItemRepo)
+        public AdminViewModel(CategoryService categoryService, ClosetItemService closetItemService)
         {
-            _categoryRepo = categoryRepo;
-            _closetItemRepo = closetItemRepo;
+            _categoryService = categoryService;
+            _closetItemService = closetItemService;
         }
 
         [RelayCommand]
         async Task ReseedCategories()
         {
-            //  seed the categories
             using var stream = await FileSystem.OpenAppPackageFileAsync("categorydata.json");
             using var reader = new StreamReader(stream);
             var contents = await reader.ReadToEndAsync();
             categoryList = JsonSerializer.Deserialize<List<Category>>(contents);
 
-            foreach(var category in categoryList)
+            Debug.WriteLine("Categories have been deserialized from JSON file and are in categoryList.  Now, insert them into Category table");
+
+            foreach (var category in categoryList)
             {
-                await _categoryRepo.InsertCategory(category);
+                await _categoryService.InsertCategory(category);
+                Debug.WriteLine("Category being inserted. " + category.CategoryType + ", " + category.CategoryName);
             }
 
             await Shell.Current.DisplayAlert("Added Categories", categoryList.Count + " categories added.", "OK");
@@ -36,7 +40,6 @@
         [RelayCommand]
         async Task ReseedClosetItems()
         {
-            //  seed the categories
             using var stream = await FileSystem.OpenAppPackageFileAsync("closetItemdata.json");
             using var reader = new StreamReader(stream);
             var contents = await reader.ReadToEndAsync();
@@ -44,12 +47,26 @@
 
             foreach (var closetItem in closetItemList)
             {
-                await _closetItemRepo.InsertClosetItem(closetItem);
+                await _closetItemService.InsertClosetItem(closetItem);
             }
 
             await Shell.Current.DisplayAlert("Added Closet Items", closetItemList.Count + " closet items added.", "OK");
         }
 
+        [RelayCommand]
+        async Task DeleteClosetItems()
+        {
+            await _closetItemService.DeleteAll();
+            await Shell.Current.DisplayAlert("Deleted Closet Items", "closet items deleted.", "OK");
+        }
 
+        [RelayCommand]
+        async Task DeleteCategories()
+        {
+            await _categoryService.DeleteAll();
+            await Shell.Current.DisplayAlert("Deleted Categories", "categories deleted", "OK");
+
+
+        }
     }
 }
