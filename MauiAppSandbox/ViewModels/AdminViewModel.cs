@@ -40,7 +40,7 @@ namespace MauiAppSandbox.ViewModels
         [RelayCommand]
         async Task ReseedClosetItems()
         {
-            using var stream = await FileSystem.OpenAppPackageFileAsync("closetItemdata.json");
+            using var stream = await FileSystem.OpenAppPackageFileAsync("closetitemdata.json");
             using var reader = new StreamReader(stream);
             var contents = await reader.ReadToEndAsync();
             closetItemList = JsonSerializer.Deserialize<List<ClosetItem>>(contents);

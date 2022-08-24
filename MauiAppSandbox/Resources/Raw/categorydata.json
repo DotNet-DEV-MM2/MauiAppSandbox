@@ -6,9 +6,9 @@
         "CategoryType" : "Type",
         "CategoryName" : "Top",
         "CategoryTitle" : "Tops",
-        "IconGlyph" : "noun-shirt-3013538.png",
+        "IconGlyph" : "shirt.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-shirt-3013538.png"
+        "PictureUri" : "shirt.png"
     },
     {
         "CategoryId" : 2,
@@ -16,9 +16,9 @@
         "CategoryType" : "Type",
         "CategoryName" : "Bottom",
         "CategoryTitle" : "Bottoms",
-        "IconGlyph" : "noun-shirt-3013538.png",
+        "IconGlyph" : "shirt.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-shirt-3013538.png"
+        "PictureUri" : "shirt.png"
     },
     {
         "CategoryId" : 3,
@@ -26,9 +26,9 @@
         "CategoryType" : "Type",
         "CategoryName" : "Dress",
         "CategoryTitle" : "Dresses",
-        "IconGlyph" : "noun-dress-3013536.png",
+        "IconGlyph" : "dress.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-dress-3013536.png"
+        "PictureUri" : "dress.png"
     },
     {
         "CategoryId" : 4,
@@ -36,9 +36,9 @@
         "CategoryType" : "Type",
         "CategoryName" : "Outerwear",
         "CategoryTitle" : "Outerwear",
-        "IconGlyph" : "noun-puffer-vest-2200104.png",
+        "IconGlyph" : "puffer_vest.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-puffer-vest-2200104.png"
+        "PictureUri" : "puffer_vest.png"
     },
     {
         "CategoryId" : 5,
@@ -46,9 +46,9 @@
         "CategoryType" : "Type",
         "CategoryName" : "Footwear",
         "CategoryTitle" : "Footwear",
-        "IconGlyph" : "noun-shoe-1202591.png",
+        "IconGlyph" : "shoe.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-shoe-1202591.png"
+        "PictureUri" : "shoe.png"
     },
     {
         "CategoryId" : 6,
@@ -56,9 +56,9 @@
         "CategoryType" : "Type",
         "CategoryName" : "Accessory",
         "CategoryTitle" : "Accessories",
-        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconGlyph" : "scarf.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-scarf-3790978.png"
+        "PictureUri" : "scarf.png"
     },
     {
         "CategoryId" : 7,
@@ -66,9 +66,9 @@
         "CategoryType" : "Season",
         "CategoryName" : "Winter",
         "CategoryTitle" : "Winter",
-        "IconGlyph" : "noun-snowflake-2098252.png",
+        "IconGlyph" : "snowflake.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-shirt-3013538.png"
+        "PictureUri" : "shirt.png"
     },
     {
         "CategoryId" : 8,
@@ -76,9 +76,9 @@
         "CategoryType" : "Season",
         "CategoryName" : "Spring",
         "CategoryTitle" : "Spring",
-        "IconGlyph" : "noun-shirt-3013538.png",
+        "IconGlyph" : "shirt.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-shirt-3013538.png"
+        "PictureUri" : "shirt.png"
     },
     {
         "CategoryId" : 9,
@@ -86,9 +86,9 @@
         "CategoryType" : "Season",
         "CategoryName" : "Summer",
         "CategoryTitle" : "Summer",
-        "IconGlyph" : "noun-sun-2494511.png",
+        "IconGlyph" : "sun1.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-shirt-3013538.png"
+        "PictureUri" : "shirt.png"
     },
     {
         "CategoryId" : 10,
@@ -96,9 +96,9 @@
         "CategoryType" : "Season",
         "CategoryName" : "Fall",
         "CategoryTitle" : "Fall",
-        "IconGlyph" : "noun-autumn-3789702.png",
+        "IconGlyph" : "autumn.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-shirt-3013538.png"
+        "PictureUri" : "shirt.png"
     },
     {
         "CategoryId" : 11,
@@ -106,9 +106,9 @@
         "CategoryType" : "Season",
         "CategoryName" : "Always",
         "CategoryTitle" : "Always",
-        "IconGlyph" : "noun-dress-3013536.png",
+        "IconGlyph" : "dress.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-shirt-3013538.png"
+        "PictureUri" : "shirt.png"
     },
     {
         "CategoryId" : 12,
@@ -116,9 +116,9 @@
         "CategoryType" : "Size",
         "CategoryName" : "Small",
         "CategoryTitle" : "Small",
-        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconGlyph" : "scarf.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-scarf-3790978.png"
+        "PictureUri" : "scarf.png"
     },
     {
         "CategoryId" : 13,
@@ -126,9 +126,9 @@
         "CategoryType" : "Size",
         "CategoryName" : "Medium",
         "CategoryTitle" : "Medium",
-        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconGlyph" : "scarf.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-scarf-3790978.png"
+        "PictureUri" : "scarf.png"
     },
     {
         "CategoryId" : 14,
@@ -136,9 +136,9 @@
         "CategoryType" : "Size",
         "CategoryName" : "Large",
         "CategoryTitle" : "Large",
-        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconGlyph" : "scarf8.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-scarf-3790978.png"
+        "PictureUri" : "scarf.png"
     },
     {
         "CategoryId" : 15,
@@ -146,9 +146,9 @@
         "CategoryType" : "Size",
         "CategoryName" : "XLarge",
         "CategoryTitle" : "XLarge",
-        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconGlyph" : "scarf.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-scarf-3790978.png"
+        "PictureUri" : "scarf.png"
     },
     {
         "CategoryId" : 16,
@@ -156,9 +156,9 @@
         "CategoryType" : "Size",
         "CategoryName" : "XSmall",
         "CategoryTitle" : "XSmall",
-        "IconGlyph" : "noun-scarf-3790978.png",
+        "IconGlyph" : "scarf.png",
         "IconFamily" : "FontAwesome-Regular",
-        "PictureUri" : "noun-scarf-3790978.png"
+        "PictureUri" : "scarf.png"
     }
 
 ]
