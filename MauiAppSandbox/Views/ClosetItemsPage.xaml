@@ -17,14 +17,15 @@
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
         RowSpacing="0">
-        <!--<RefreshView
+        <RefreshView
             Grid.ColumnSpan="2"
             Command="{Binding GetClosetItemsCommand}"
-            IsRefreshing="{Binding IsRefreshing}">-->
+            IsRefreshing="{Binding IsRefreshing}">
+            
             <CollectionView
                 ItemsSource="{Binding ClosetItems}"
                 SelectionMode="None">
-                <!--<CollectionView.EmptyView>
+                <CollectionView.EmptyView>
                     <StackLayout Padding="100">
                         <Image
                             HorizontalOptions="CenterAndExpand"
@@ -32,14 +33,19 @@
                             VerticalOptions="CenterAndExpand" />
                     </StackLayout>
                 </CollectionView.EmptyView>
-                <CollectionView.ItemsLayout>
+                <!--<CollectionView.ItemsLayout>
                     <GridItemsLayout  Orientation="Horizontal" Span="3"/>
                 </CollectionView.ItemsLayout>-->
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:ClosetItem">
                         <Grid Padding="10">
                             <Frame HeightRequest="125" Style="{StaticResource CardView}">
-                                
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ClosetItemsViewModel}}, Path=GoToClosetItemDetailsCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+
                                 <Grid Padding="0" ColumnDefinitions="125,*">
                                     <Image
                                         Aspect="AspectFill"
@@ -59,14 +65,14 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-       <!-- </RefreshView>-->
+        </RefreshView>
         <Button
             Grid.Row="1"
             Grid.Column="0"
             Margin="8"
             Command="{Binding GetClosetItemsCommand}"
             IsEnabled="{Binding IsNotBusy}"
-            Text="Get Categories" />
+            Text="Refresh Closet Items" />
 
         <ActivityIndicator
             Grid.RowSpan="2"

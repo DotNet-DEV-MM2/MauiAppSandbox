@@ -66,7 +66,20 @@ namespace MauiAppSandbox.Services
 
         public async Task DeleteAll()
         {
-            await conn.Table<ClosetItem>().DeleteAsync();
+            try
+            {
+                await Init();
+                var result = await conn.Table<ClosetItem>().ToListAsync();
+                foreach (var item in result)
+                {
+                    await conn.DeleteAsync(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+            }
+
         }
 
     }

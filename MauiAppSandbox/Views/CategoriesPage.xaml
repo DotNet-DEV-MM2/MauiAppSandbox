@@ -23,16 +23,16 @@
             <CollectionView
                 ItemsSource="{Binding Categories}"
                 SelectionMode="None">
-                <!--<CollectionView.EmptyView>
-                    <StackLayout Padding="100">
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout Padding="100">
                         <Image
                             HorizontalOptions="CenterAndExpand"
                             Source="nodata.png"
                             VerticalOptions="CenterAndExpand" />
-                    </StackLayout>
+                    </VerticalStackLayout>
                 </CollectionView.EmptyView>
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout  Orientation="Horizontal" Span="3"/>
+                <!--   <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" Span="3"/>
                 </CollectionView.ItemsLayout>-->
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Category">
@@ -74,7 +74,7 @@
             Margin="8"
             Command="{Binding GetCategoriesCommand}"
             IsEnabled="{Binding IsNotBusy}"
-            Text="Get Categories" />
+            Text="Refresh Categories" />
 
         <ActivityIndicator
             Grid.RowSpan="2"
