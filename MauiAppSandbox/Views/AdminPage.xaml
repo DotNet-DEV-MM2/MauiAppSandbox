@@ -7,23 +7,35 @@
              xmlns:views="clr-namespace:MauiAppSandbox.Views"
              x:Class="MauiAppSandbox.Views.AdminPage"
              Title="AdminPage">
-    <VerticalStackLayout>
+    <VerticalStackLayout VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         WidthRequest="150">
         <Label 
-            Text="Welcome to Admin Page"
+            Text="Category Table"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            Margin="0,0,0,10"/>
 
-        <Button Text="Reseed Category Table"
+        <Button Text="Reseed"
+                Margin="0,0,0,10"
                 Command="{Binding ReseedCategoriesCommand}"/>
 
-        <Button Text="Reseed Closet Item Table"
-                Command="{Binding ReseedClosetItemsCommand}"/>
-
-
-        <Button Text="Delete Categories from table"
+        <Button Text="Delete All"
+                Margin="0,0,0,30"
                 Command="{Binding DeleteCategoriesCommand}"/>
 
-        <Button Text="Delete Closet Items from Table"
+
+
+        <Label 
+            Text="Closet Items Table"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Margin="0,0,0,10"/>
+        <Button Text="Reseed"
+                Margin="0,0,0,10"
+                Command="{Binding ReseedClosetItemsCommand}"/>
+        <Button Text="Delete All"
+                Margin="0,0,0,10"
                 Command="{Binding DeleteClosetItemsCommand}"/>
     </VerticalStackLayout>
 </views:ContentPageBase>
