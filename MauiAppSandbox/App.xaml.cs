@@ -1,20 +1,21 @@
-﻿using MauiAppSandbox.Services;
+﻿using MauiAppSandbox.Interfaces;
 
 namespace MauiAppSandbox;
 
 public partial class App : Application
 {
-    public static CategoryService _categoryService { get; private set; }
-    public static ClosetItemService _closetItemService { get; private set; }
+    //public static ICategoryRepository _categoryRepository { get; private set; }
+    // public static IClosetItemRepository _closetItemRepository { get; private set; }
 
-    public App(CategoryService categoryService, ClosetItemService closetItemService)
-	{
+    /*public App(ICategoryRepository categoryRepository, IClosetItemRepository closetItemRepository)*/
+    public App()
+    {
 		InitializeComponent();
 
 		MainPage = new AppShell();
 
-        _categoryService = categoryService;
-        _closetItemService = closetItemService;
+       /* _categoryRepository = categoryRepository;
+        _closetItemRepository = closetItemRepository;*/
 
     }
 }

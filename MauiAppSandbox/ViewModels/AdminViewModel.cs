@@ -1,20 +1,20 @@
-﻿using MauiAppSandbox.Services;
+﻿using MauiAppSandbox.Interfaces;
 
 namespace MauiAppSandbox.ViewModels
 {
 
     public partial class AdminViewModel : ViewModelBase
     {
-        CategoryService _categoryService;
-        ClosetItemService _closetItemService;
+        private ICategoryRepository _categoryRepository;
+        private IClosetItemRepository _closetItemRepository;
 
         List<Category> categoryList;
         List<ClosetItem> closetItemList;
 
-        public AdminViewModel(CategoryService categoryService, ClosetItemService closetItemService)
+        public AdminViewModel(ICategoryRepository categoryRepository, IClosetItemRepository closetItemRepository)
         {
-            _categoryService = categoryService;
-            _closetItemService = closetItemService;
+            _categoryRepository = categoryRepository;
+            _closetItemRepository = closetItemRepository;
         }
 
         [RelayCommand]
@@ -29,7 +29,7 @@ namespace MauiAppSandbox.ViewModels
 
             foreach (var category in categoryList)
             {
-                await _categoryService.InsertCategory(category);
+                await _categoryRepository.SaveAsync(category);  
                 Debug.WriteLine("Category being inserted. " + category.CategoryType + ", " + category.CategoryName);
             }
 
@@ -47,7 +47,7 @@ namespace MauiAppSandbox.ViewModels
 
             foreach (var closetItem in closetItemList)
             {
-                await _closetItemService.InsertClosetItem(closetItem);
+                await _closetItemRepository.SaveAsync(closetItem);
             }
 
             await Shell.Current.DisplayAlert("Added Closet Items", closetItemList.Count + " closet items added.", "OK");
@@ -56,14 +56,14 @@ namespace MauiAppSandbox.ViewModels
         [RelayCommand]
         async Task DeleteClosetItems()
         {
-            await _closetItemService.DeleteAll();
+            await _closetItemRepository.DeleteAll();
             await Shell.Current.DisplayAlert("Deleted Closet Items", "closet items deleted.", "OK");
         }
 
         [RelayCommand]
         async Task DeleteCategories()
         {
-            await _categoryService.DeleteAll();
+            await _categoryRepository.DeleteAll();
             await Shell.Current.DisplayAlert("Deleted Categories", "categories deleted", "OK");
 
 

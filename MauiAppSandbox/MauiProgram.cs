@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
-using MauiAppSandbox.Services;
+using MauiAppSandbox.Interfaces;
+using MauiAppSandbox.Repositories;
 
 namespace MauiAppSandbox;
 public static class MauiProgram
@@ -24,8 +25,8 @@ public static class MauiProgram
     public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder mauiAppBuilder)
     {
         string dbPath = FileAccessHelper.GetLocalFilePath("MauiAppSandboxDb.db3");
-        mauiAppBuilder.Services.AddSingleton<CategoryService>(s => ActivatorUtilities.CreateInstance<CategoryService>(s, dbPath));
-        mauiAppBuilder.Services.AddSingleton<ClosetItemService>(s => ActivatorUtilities.CreateInstance<ClosetItemService>(s, dbPath));
+        mauiAppBuilder.Services.AddSingleton<ICategoryRepository, CategoryRepository>(s => ActivatorUtilities.CreateInstance<CategoryRepository>(s, dbPath));
+        mauiAppBuilder.Services.AddSingleton<IClosetItemRepository, ClosetItemRepository>(s => ActivatorUtilities.CreateInstance<ClosetItemRepository>(s, dbPath));
 
 
         return mauiAppBuilder;

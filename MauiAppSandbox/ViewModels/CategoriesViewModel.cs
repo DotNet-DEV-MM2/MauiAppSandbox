@@ -1,4 +1,4 @@
-﻿using MauiAppSandbox.Services;
+﻿using MauiAppSandbox.Interfaces;
 
 namespace MauiAppSandbox.ViewModels
 {
@@ -6,12 +6,12 @@ namespace MauiAppSandbox.ViewModels
     {
         public ObservableCollection<Category> Categories { get; } = new();
 
-        private CategoryService _categoryService;
+        private ICategoryRepository _categoryRepository;
       
-        public CategoriesViewModel(CategoryService categoryService)
+        public CategoriesViewModel(ICategoryRepository categoryRepository)
 
         {
-            _categoryService = categoryService;   
+            _categoryRepository = categoryRepository;   
 
         }
 
@@ -24,7 +24,7 @@ namespace MauiAppSandbox.ViewModels
         [RelayCommand]
         async Task GetCategories()
         {
-            var categories = await _categoryService.GetAllCategories();
+            var categories = await _categoryRepository.GetAll();
             if (Categories.Count != 0)
                 Categories.Clear();
 

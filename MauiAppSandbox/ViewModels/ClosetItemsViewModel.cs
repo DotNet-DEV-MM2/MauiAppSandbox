@@ -1,5 +1,5 @@
-﻿using MauiAppSandbox.Services;
-using MauiAppSandbox.Views;
+﻿
+using MauiAppSandbox.Interfaces;
 
 namespace MauiAppSandbox.ViewModels
 {
@@ -7,16 +7,16 @@ namespace MauiAppSandbox.ViewModels
     {
         public ObservableCollection<ClosetItem> ClosetItems { get; } = new();
 
-        ClosetItemService _closetService;
+        IClosetItemRepository _closetRepository;
 /*
         IConnectivity connectivity;
         IGeolocation geolocation;*/
 
-        public ClosetItemsViewModel(ClosetItemService closetService)
+        public ClosetItemsViewModel(IClosetItemRepository closetRepository)
 
         {
 
-            _closetService = closetService;
+            _closetRepository = closetRepository;
 
            /* this.connectivity = connectivity;
             this.geolocation = geolocation;*/
@@ -32,7 +32,7 @@ namespace MauiAppSandbox.ViewModels
         [RelayCommand]
         async Task GetClosetItems()
         {
-            var items = await _closetService.GetAllClosetItems();
+            var items = await _closetRepository.GetAll();
             if (ClosetItems.Count != 0)
                 ClosetItems.Clear();
 
