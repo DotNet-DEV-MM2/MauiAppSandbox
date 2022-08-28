@@ -27,6 +27,7 @@ public static class MauiProgram
         string dbPath = FileAccessHelper.GetLocalFilePath("MauiAppSandboxDb.db3");
         mauiAppBuilder.Services.AddSingleton<ICategoryRepository, CategoryRepository>(s => ActivatorUtilities.CreateInstance<CategoryRepository>(s, dbPath));
         mauiAppBuilder.Services.AddSingleton<IClosetItemRepository, ClosetItemRepository>(s => ActivatorUtilities.CreateInstance<ClosetItemRepository>(s, dbPath));
+        mauiAppBuilder.Services.AddSingleton<IAppUserRepository, AppUserRepository>(s => ActivatorUtilities.CreateInstance<AppUserRepository>(s, dbPath));
 
 
         return mauiAppBuilder;
@@ -36,6 +37,7 @@ public static class MauiProgram
     {
         mauiAppBuilder.Services.AddSingleton<CategoriesViewModel>();
         mauiAppBuilder.Services.AddSingleton<ClosetItemsViewModel>();
+        mauiAppBuilder.Services.AddSingleton<AppUsersViewModel>();
         mauiAppBuilder.Services.AddSingleton<AdminViewModel>();
 
         return mauiAppBuilder;
@@ -45,6 +47,7 @@ public static class MauiProgram
     {
         mauiAppBuilder.Services.AddSingleton<CategoriesPage>();
         mauiAppBuilder.Services.AddSingleton<ClosetItemsPage>();
+        mauiAppBuilder.Services.AddSingleton<AppUsersPage>();
         mauiAppBuilder.Services.AddSingleton<AdminPage>();
 
         return mauiAppBuilder;

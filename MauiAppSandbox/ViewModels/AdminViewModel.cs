@@ -7,16 +7,23 @@ namespace MauiAppSandbox.ViewModels
     {
         private ICategoryRepository _categoryRepository;
         private IClosetItemRepository _closetItemRepository;
+        private IAppUserRepository _appUserRepository;
 
         List<Category> categoryList;
         List<ClosetItem> closetItemList;
+        List<AppUser> appUserList;
 
-        public AdminViewModel(ICategoryRepository categoryRepository, IClosetItemRepository closetItemRepository)
+        public AdminViewModel(ICategoryRepository categoryRepository, 
+            IClosetItemRepository closetItemRepository,
+            IAppUserRepository appUserRepository)
         {
             _categoryRepository = categoryRepository;
             _closetItemRepository = closetItemRepository;
+            _appUserRepository = appUserRepository;
         }
 
+
+        // Categories Admin
         [RelayCommand]
         async Task ReseedCategories()
         {
@@ -34,9 +41,18 @@ namespace MauiAppSandbox.ViewModels
             }
 
             await Shell.Current.DisplayAlert("Added Categories", categoryList.Count + " categories added.", "OK");
-
         }
 
+
+        [RelayCommand]
+        async Task DeleteCategories()
+        {
+            await _categoryRepository.DeleteAll();
+            await Shell.Current.DisplayAlert("Deleted Categories", "categories deleted", "OK");
+        }
+
+
+        // Categories Admin
         [RelayCommand]
         async Task ReseedClosetItems()
         {
@@ -60,13 +76,29 @@ namespace MauiAppSandbox.ViewModels
             await Shell.Current.DisplayAlert("Deleted Closet Items", "closet items deleted.", "OK");
         }
 
+        // AppUser Admin
         [RelayCommand]
-        async Task DeleteCategories()
+        async Task ReseedAppUsers()
         {
-            await _categoryRepository.DeleteAll();
-            await Shell.Current.DisplayAlert("Deleted Categories", "categories deleted", "OK");
+            using var stream = await FileSystem.OpenAppPackageFileAsync("appuserdata.json");
+            using var reader = new StreamReader(stream);
+            var contents = await reader.ReadToEndAsync();
+            appUserList = JsonSerializer.Deserialize<List<AppUser>>(contents);
 
+            foreach (var appUser in appUserList)
+            {
+                await _appUserRepository.SaveAsync(appUser);
+            }
 
+            await Shell.Current.DisplayAlert("Added App Users", appUserList.Count + " app users added.", "OK");
         }
+
+        [RelayCommand]
+        async Task DeleteAppUsers()
+        {
+            await _appUserRepository.DeleteAll();
+            await Shell.Current.DisplayAlert("Deleted App Users", "app users deleted.", "OK");
+        }
+
     }
 }

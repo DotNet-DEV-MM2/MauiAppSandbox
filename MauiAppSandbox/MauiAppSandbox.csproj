@@ -51,6 +51,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\autumn.png" />
+	  <None Remove="Resources\Raw\appuserdata.json" />
 	  <None Remove="Resources\Raw\categorydata.json" />
 	  <None Remove="Resources\Raw\closetitemdata.json" />
 	</ItemGroup>
@@ -72,6 +73,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\AdminPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AppUsersPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CategoriesPage.xaml">

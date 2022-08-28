@@ -1,0 +1,17 @@
+﻿[
+
+  {
+    "AppUserId": 1,
+    "UserName": "missymaloneydev",
+    "Email": "adminUserEmail",
+    "EmailConfirmed": "yes",
+    "Role": "admin"
+  },
+  {
+    "AppUserId": 1,
+    "UserName": "app-user1",
+    "Email": "appUserEmail",
+    "EmailConfirmed": "yes",
+    "Role": "app-user"
+  }
+]

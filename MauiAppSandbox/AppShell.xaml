@@ -12,6 +12,9 @@
         <ShellContent Title="Closet Items"
                           Icon="graph.svg"
                           ContentTemplate="{DataTemplate views:ClosetItemsPage}" />
+        <ShellContent Title="App Users"
+                          Icon="graph.svg"
+                          ContentTemplate="{DataTemplate views:AppUsersPage}" />
         <ShellContent Title="Category Admin"
                           Icon="graph.svg"
                           ContentTemplate="{DataTemplate views:AdminPage}" />

@@ -37,5 +37,17 @@
         <Button Text="Delete All"
                 Margin="0,0,0,10"
                 Command="{Binding DeleteClosetItemsCommand}"/>
+
+        <Label 
+            Text="App Users Table"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Margin="0,0,0,10"/>
+        <Button Text="Reseed"
+                Margin="0,0,0,10"
+                Command="{Binding ReseedAppUsersCommand}"/>
+        <Button Text="Delete All"
+                Margin="0,0,0,10"
+                Command="{Binding DeleteAppUsersCommand}"/>
     </VerticalStackLayout>
 </views:ContentPageBase>
