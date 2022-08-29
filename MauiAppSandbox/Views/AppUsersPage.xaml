@@ -59,13 +59,13 @@
             </CollectionView>
         </RefreshView>
 
-        <Button
+       <!-- <Button
             Grid.Row="1"
             Grid.Column="0"
             Margin="8"
             Command="{Binding GetAppUsersCommand}"
             IsEnabled="{Binding IsNotBusy}"
-            Text="Refresh AppUsers" />
+            Text="Refresh AppUsers" />-->
 
         <ActivityIndicator
             Grid.RowSpan="2"

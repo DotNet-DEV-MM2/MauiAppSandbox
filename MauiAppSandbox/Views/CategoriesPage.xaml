@@ -68,13 +68,13 @@
             </CollectionView>
         </RefreshView>
 
-        <Button
+       <!-- <Button
             Grid.Row="1"
             Grid.Column="0"
             Margin="8"
             Command="{Binding GetCategoriesCommand}"
             IsEnabled="{Binding IsNotBusy}"
-            Text="Refresh Categories" />
+            Text="Refresh Categories" />-->
 
         <ActivityIndicator
             Grid.RowSpan="2"

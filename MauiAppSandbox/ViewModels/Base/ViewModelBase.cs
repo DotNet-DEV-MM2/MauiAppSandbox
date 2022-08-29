@@ -2,11 +2,19 @@
 
 namespace MauiAppSandbox.ViewModels
 {
-    public abstract class ViewModelBase : ObservableObject, IViewModelBase
+    public partial class ViewModelBase : ObservableObject, IViewModelBase
     {
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(IsNotBusy))]
+        bool isBusy;
+
+        [ObservableProperty]
+        string title;
+
+        public bool IsNotBusy => !IsBusy;
 
         private bool _isInitialized;
-        private bool _isBusy;
+        //private bool _isBusy;
 
 
         public bool IsInitialized
@@ -15,7 +23,7 @@ namespace MauiAppSandbox.ViewModels
             set => SetProperty(ref _isInitialized, value);
         }
 
-        public bool IsBusy
+       /* public bool IsBusy
         {
             get => _isBusy;
             private set => SetProperty(ref _isBusy, value);
@@ -32,7 +40,7 @@ namespace MauiAppSandbox.ViewModels
                     IsBusy = !_isNotBusy;
                 }
             }
-        }
+        }*/
 
         public virtual void ApplyQueryAttributes(IDictionary<string, object> query)
         {

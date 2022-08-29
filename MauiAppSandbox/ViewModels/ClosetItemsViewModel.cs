@@ -32,12 +32,29 @@ namespace MauiAppSandbox.ViewModels
         [RelayCommand]
         async Task GetClosetItems()
         {
-            var items = await _closetRepository.GetAll();
-            if (ClosetItems.Count != 0)
-                ClosetItems.Clear();
+            if (IsBusy)
+                return;
 
-            foreach (var item in items)
-                ClosetItems.Add(item);
+            try
+            {
+                IsBusy = true;
+                var items = await _closetRepository.GetAll();
+                if (ClosetItems.Count != 0)
+                    ClosetItems.Clear();
+
+                foreach (var item in items)
+                    ClosetItems.Add(item);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Unable to get closet items: {ex.Message}");
+                await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+                IsRefreshing = false;
+            }
         }
 
         [ObservableProperty]

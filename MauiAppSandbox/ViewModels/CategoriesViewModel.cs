@@ -24,12 +24,32 @@ namespace MauiAppSandbox.ViewModels
         [RelayCommand]
         async Task GetCategories()
         {
-            var categories = await _categoryRepository.GetAll();
-            if (Categories.Count != 0)
-                Categories.Clear();
+            if (IsBusy)
+                return;
 
-            foreach (var category in categories)
-                Categories.Add(category);
+            try
+            {
+                IsBusy = true;
+
+                var categories = await _categoryRepository.GetAll();
+                if (Categories.Count != 0)
+                    Categories.Clear();
+
+                foreach (var category in categories)
+                    Categories.Add(category);
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Unable to get categories: {ex.Message}");
+                await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+                IsRefreshing = false;
+            }
+           
         }
 
         [ObservableProperty]

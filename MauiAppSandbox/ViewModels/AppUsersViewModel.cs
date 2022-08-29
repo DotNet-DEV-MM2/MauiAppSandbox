@@ -29,12 +29,28 @@ namespace MauiAppSandbox.ViewModels
         [RelayCommand]
         async Task GetAppUsers()
         {
-            var appUsers = await _appUserRepository.GetAll();
-            if (AppUsers.Count != 0)
+            if (IsBusy)
+                return;
+
+            try
+            {
+                var appUsers = await _appUserRepository.GetAll();
+                if (AppUsers.Count != 0)
                 AppUsers.Clear();
 
-            foreach (var appUser in appUsers)
-                AppUsers.Add(appUser);
+                foreach (var appUser in appUsers)
+                    AppUsers.Add(appUser);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Unable to get app users: {ex.Message}");
+                await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+                IsRefreshing = false;
+            }
         }
 
         [ObservableProperty]
